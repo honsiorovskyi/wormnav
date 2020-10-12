@@ -665,14 +665,17 @@ public class MainActivity extends Utils implements ActivityCompat.OnRequestPermi
         Intent intent = getIntent();
 
         if (intent != null) {
+            Log.d(TAG, "Intent: " + intent.toString());
 
             final Uri data = intent.getData();
 
             if (data != null) {
+                Log.d(TAG, "-- URI from intent: " + data.toString());
 
-                final String filePath = data.getEncodedPath();
+                final String filePath = data.toString();//data.getEncodedPath();
 
                 if (filePath != null && !filePath.isEmpty()) {
+                    Log.d(TAG, "-- File path from intent: " + filePath);
 
                     intent.setData(null);
                     externalGpxFile = filePath;
